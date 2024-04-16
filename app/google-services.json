@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "784062660711",
+    "firebase_url": "https://desafio-2-dsm-d72c7-default-rtdb.firebaseio.com",
+    "project_id": "desafio-2-dsm-d72c7",
+    "storage_bucket": "desafio-2-dsm-d72c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784062660711:android:c10a94d0fa640be8a0d4c2",
+        "android_client_info": {
+          "package_name": "com.example.desafio2_mh181960"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKYchTbNSP7jvQ05UzifsNNiIPJ2tVraE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784062660711:android:2ba24a175c4dee6ea0d4c2",
+        "android_client_info": {
+          "package_name": "com.example.desafio2mh181960"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKYchTbNSP7jvQ05UzifsNNiIPJ2tVraE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
