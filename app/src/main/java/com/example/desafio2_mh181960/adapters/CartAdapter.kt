@@ -22,6 +22,7 @@ class CartAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<Cart
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsViewModel = mList[position]
         holder.textView.text = ItemsViewModel.nombre
+        holder.textViewprecio.text = ItemsViewModel.precio.toString().toString()
         holder.medicine = ItemsViewModel
     }
     // return the number of the items in the list
@@ -32,6 +33,7 @@ class CartAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<Cart
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
+        val textViewprecio: TextView = itemView.findViewById(R.id.textViewprecio)
         val btnAddToCart: Button =  itemView.findViewById(R.id.BtnDeleteToCart)
         var medicine = Medicine()
         init {
@@ -39,6 +41,7 @@ class CartAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<Cart
                 override fun onClick(v: View?) {
                     val databaseReference = FirebaseDatabase.getInstance().reference
                     databaseReference.child("Carrito").child("pedido").child(medicine.id).removeValue()
+                    Toast.makeText(itemView.context,"Elemento eliminado al carrito", Toast.LENGTH_SHORT).show()
                 }
             })
         }

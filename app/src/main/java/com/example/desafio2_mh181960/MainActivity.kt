@@ -53,4 +53,8 @@ class MainActivity : AppCompatActivity() {
         val historial = Intent(this, CartHistory::class.java)
         startActivity(historial)
     }
+    fun onClickRefresh(v: View?) {
+        recreate() // Llama al método recreate() para refrescar la actividad
+    }
+
 }

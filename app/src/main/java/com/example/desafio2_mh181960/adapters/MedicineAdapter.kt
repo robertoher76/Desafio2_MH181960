@@ -40,6 +40,7 @@ class MedicineAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<
 
         // sets the text to the textview from our itemHolder class
         holder.textView.text = ItemsViewModel.nombre
+        holder.textViewprecio.text = ItemsViewModel.precio.toString().toString()
         holder.medicine = ItemsViewModel
 
 
@@ -55,6 +56,7 @@ class MedicineAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
+        val textViewprecio: TextView = itemView.findViewById(R.id.textViewprecio)
         val btnAddToCart: Button =  itemView.findViewById(R.id.BtnAddToCart)
         var medicine = Medicine()
         init {
@@ -62,6 +64,7 @@ class MedicineAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<
                 override fun onClick(v: View?) {
                     val databaseReference = FirebaseDatabase.getInstance().reference
                     databaseReference.child("Carrito").child("pedido").push().setValue(medicine)
+                    Toast.makeText(itemView.context,"Elemento agregado al carrito", Toast.LENGTH_SHORT).show()
                 }
             })
         }
