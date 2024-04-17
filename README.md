@@ -1,4 +1,4 @@
-El pdf con las capturas de pantalla esta alojado qui en github
+El pdf con las capturas de pantalla esta alojado aqui en github
 
 
 Alumno: Carnet:
