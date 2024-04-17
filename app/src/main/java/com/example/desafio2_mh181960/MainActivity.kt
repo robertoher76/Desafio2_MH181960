@@ -1,13 +1,17 @@
 package com.example.desafio2_mh181960
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio2_mh181960.adapters.MedicineAdapter
 import com.example.desafio2_mh181960.models.Medicine;
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -38,5 +42,9 @@ class MainActivity : AppCompatActivity() {
         }.addOnFailureListener {
             Log.e("Error obteniendo medicamentos", "Error getting data", it)
         }
+    }
+    fun onClickBtnCarrito(v: View?) {
+        val carrito = Intent(this, CartActivity::class.java)
+        startActivity(carrito)
     }
 }
