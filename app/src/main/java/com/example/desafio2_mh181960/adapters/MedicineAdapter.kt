@@ -1,15 +1,20 @@
 package com.example.desafio2_mh181960.adapters
 
-import com.example.desafio2_mh181960.R;
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.desafio2_mh181960.R
 import com.example.desafio2_mh181960.models.Medicine
+import com.google.firebase.database.FirebaseDatabase
+
 
 class MedicineAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<MedicineAdapter.ViewHolder>() {
+
+    public var medicine = new Medicine();
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -41,5 +46,15 @@ class MedicineAdapter(private val mList: List<Medicine>) : RecyclerView.Adapter<
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
+        val btnAddToCart: Button =  itemView.findViewById(R.id.BtnAddToCart)
+
+        init {
+            btnAddToCart.setOnClickListener(object : View.OnClickListener {
+                override fun onClick(v: View?) {
+                    val databaseReference = FirebaseDatabase.getInstance().reference
+                    databaseReference.child("Carrito").child("actual").push().setValue(producto)
+                }
+            })
+        }
     }
 }

@@ -22,18 +22,21 @@ class MainActivity : AppCompatActivity() {
         database = Firebase.database.reference
         var medicines = ArrayList<Medicine>()
 
-        medicines.add(Medicine("example","example xd",3.99))
-
         database.child("medicamentos").get().addOnSuccessListener {
             it.children.forEach{
-                medicines.add(Medicine(it.key,it.child("nombre").value.toString(),it.child("precio").value.toString().toDouble()))
+                var id = it.key.toString()
+                var nombre = it.child("nombre").value.toString()
+                var precio = it.child("precio").value.toString().toDouble()
+                var medicina = Medicine(id,nombre,precio)
+                medicines.add(medicina)
+                val recyclerview = findViewById<RecyclerView>(R.id.RecyclerViewMedicines)
+                recyclerview.layoutManager = LinearLayoutManager(this)
+
+                val adapter = MedicineAdapter(medicines)
+                recyclerview.adapter = adapter
             }
+        }.addOnFailureListener {
+            Log.e("Error obteniendo medicamentos", "Error getting data", it)
         }
-
-        val recyclerview = findViewById<RecyclerView>(R.id.RecyclerViewMedicines)
-        recyclerview.layoutManager = LinearLayoutManager(this)
-
-        val adapter = MedicineAdapter(medicines)
-        recyclerview.adapter = adapter
     }
 }
