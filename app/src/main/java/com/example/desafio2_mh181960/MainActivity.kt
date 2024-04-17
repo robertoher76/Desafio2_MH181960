@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
                 val recyclerview = findViewById<RecyclerView>(R.id.RecyclerViewMedicines)
                 recyclerview.layoutManager = LinearLayoutManager(this)
 
+
                 val adapter = MedicineAdapter(medicines)
                 recyclerview.adapter = adapter
             }
@@ -46,5 +47,10 @@ class MainActivity : AppCompatActivity() {
     fun onClickBtnCarrito(v: View?) {
         val carrito = Intent(this, CartActivity::class.java)
         startActivity(carrito)
+    }
+
+    fun onClickBtnHistorial(v: View?) {
+        val historial = Intent(this, CartHistory::class.java)
+        startActivity(historial)
     }
 }
