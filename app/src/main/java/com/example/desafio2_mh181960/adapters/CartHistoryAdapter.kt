@@ -19,6 +19,7 @@ class CartHistoryAdapter(private val mList: List<Medicine>) : RecyclerView.Adapt
     }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsViewModel = mList[position]
+        holder.textViewprecio.text = ItemsViewModel.precio.toString().toString()
         holder.textView.text = ItemsViewModel.nombre
     }
     // return the number of the items in the list
@@ -29,5 +30,6 @@ class CartHistoryAdapter(private val mList: List<Medicine>) : RecyclerView.Adapt
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
+        val textViewprecio: TextView = itemView.findViewById(R.id.textViewprecio)
     }
 }

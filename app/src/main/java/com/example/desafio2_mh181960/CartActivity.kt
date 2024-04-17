@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio2_mh181960.adapters.CartAdapter
@@ -63,8 +64,10 @@ class CartActivity : AppCompatActivity() {
                 var medicina = Medicine(id,nombre,precio)
                 pedido.add(medicina)
             }
+
             database.child("Historial").child(key).setValue(pedido)
             database.child("Carrito").child("pedido").removeValue()
+            Toast.makeText(this, "Pedido confirmado", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener{
             Log.e("firebase", "Error generando historial de pedidos", it)
         }
